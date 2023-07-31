@@ -1,9 +1,17 @@
-import { useRouter } from "next/router"
+import EventList from '@/components/events/EventList';
+import { getFeaturedEvents } from '@/dummy-data';
 
 const AllEventsPage = () => {
-    return (
-        <div><h1>All Events Page</h1></div>
-    )
-}
+  const featuredEvents = getFeaturedEvents();
 
-export default AllEventsPage
+  console.log('featured events', featuredEvents);
+
+  return (
+    <div>
+      <h1>Featured events</h1>
+      <EventList events={featuredEvents} />
+    </div>
+  );
+};
+
+export default AllEventsPage;
