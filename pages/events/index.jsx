@@ -1,16 +1,24 @@
 import EventList from '@/components/events/EventList';
-import { getFeaturedEvents } from '@/dummy-data';
+import EventsSearch from '@/components/events/EventsSearch';
+import { useRouter } from 'next/router';
+
+import { getAllEvents } from '@/dummy-data';
 
 const AllEventsPage = () => {
-  const featuredEvents = getFeaturedEvents();
+  const router = useRouter();
 
-  console.log('featured events', featuredEvents);
+  const allEvents = getAllEvents();
+
+  const handleFindEvent = (year, month) => {
+    router.push(`/events/${year}/${month}`);
+  };
 
   return (
-    <div>
-      <h1>Featured events</h1>
-      <EventList events={featuredEvents} />
-    </div>
+    <>
+      <h1>All events</h1>
+      <EventsSearch onSearch={handleFindEvent} />
+      <EventList events={allEvents} />
+    </>
   );
 };
 

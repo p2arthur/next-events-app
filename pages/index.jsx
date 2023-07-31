@@ -1,15 +1,16 @@
 import EventList from '@/components/events/EventList';
-import { getAllEvents } from '@/dummy-data';
+import { getFeaturedEvents } from '@/dummy-data';
+import EventsSearch from '@/components/events/EventsSearch';
 
 const HomePage = () => {
-  const allEvents = getAllEvents();
+  const featuredEvents = getFeaturedEvents();
 
   return (
     <div>
       <h1>The Home Page</h1>
       <div>
-        <h2>All events</h2>
-        <EventList events={allEvents} />
+        <h2>Featured events</h2>
+        <EventList events={featuredEvents} />
       </div>
     </div>
   );
